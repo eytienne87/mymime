@@ -1,12 +1,14 @@
 // Specific CSS for your home-page
 body {
-  padding-top: 70px;
+  padding-top: 20px;
+  justify-content: right;
 }
 .navbar.navbar-inverse {
   border: none;
 }
 .navbar .navbar-brand {
   padding-top: 0px;
+  justify-content: left;
 }
 .navbar .navbar-brand img {
   height: 50px;
