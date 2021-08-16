@@ -1,8 +1,16 @@
 // Specific CSS for your home-page
 body {
-  padding-top: 20px;
-  justify-content: space-around;
+  background-color: black;
+  font-family: Verdana;
+  color: white;
+  padding-top:0px;
+  justify-content:space-around;
+  display: flex
+  content {
+    width: 1000px;
+  }
 }
+
 .navbar.navbar-inverse {
   border: none;
 }
@@ -12,11 +20,20 @@ body {
 .navbar .navbar-brand img {
   height: 50px;
 }
+
 .banner {
   height: 1000px;
+  color: black;
+  content {
+    color: white;
+  }
 }
-.banner .banner-content {
-  color:white
+
+button {
+  background-color: #f30707;
+  color: #000;
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
 }
-h1,h3 {
-   margin: 10px 0; }

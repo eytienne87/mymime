@@ -1,2 +1,35 @@
 // Import page-specific CSS files here.
 @import "home";
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+body {
+  background-color: black;
+  font-family: Verdana;
+  color: white;
+  padding-top: 20px;
+  justify-content:space-around;
+  display: flex
+  content {
+    width: 1000px;
+  }
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 48px;
+  align-items: center;
+  color: white;
+  }
