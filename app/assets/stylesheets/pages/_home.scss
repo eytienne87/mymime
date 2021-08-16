@@ -14,7 +14,9 @@ body {
 }
 .banner {
   height: 1000px;
-  font-size: 100%;
+}
+.banner .banner-content {
+  color:white
 }
 h1,h3 {
    margin: 10px 0; }
