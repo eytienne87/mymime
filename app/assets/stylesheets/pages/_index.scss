@@ -1,5 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -15,21 +16,16 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-body {
-  background-color: black;
-  font-family: Verdana;
-  color: white;
-  padding-top: 20px;
-  justify-content:space-around;
-  display: flex
-  content {
-    width: 1000px;
-  }
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
-h1 {
-  margin: 10px 0;
-  font-size: 48px;
-  align-items: center;
-  color: white;
-  }
+.btn-ghost:hover {
+  opacity: 1;
+}
