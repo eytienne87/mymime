@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_173327) do
     t.bigint "clown_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "accepted"
     t.index ["clown_id"], name: "index_bookings_on_clown_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
