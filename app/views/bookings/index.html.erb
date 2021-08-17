@@ -1,29 +1,33 @@
 <h1>All Bookings</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Booking Start date</th>
-      <th scope="col">Booking End date</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% @bookings.each do |booking| %>
-        <tr>
-          <td><%= booking.clown.name %></td>
-          <td><%= booking.start_date %></td>
-          <td><%= booking.end_date %></td>
-          <% if booking.accepted.nil? %>
-            <td>Pending</td>
-          <% elsif booking.accepted %>
-            <td>Accepted</td>
-          <% else %>
-            <td>Rejected</td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
+<% if @bookings.empty? %>
+  You don't have any bookings.
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Booking Start date</th>
+        <th scope="col">Booking End date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <td><%= booking.clown.name %></td>
+            <td><%= booking.start_date %></td>
+            <td><%= booking.end_date %></td>
+            <% if booking.accepted.nil? %>
+              <td>Pending</td>
+            <% elsif booking.accepted %>
+              <td>Accepted</td>
+            <% else %>
+              <td>Rejected</td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
