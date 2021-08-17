@@ -1,14 +1,15 @@
-<%= simple_form_for(@clown) do |f| %>
+<h1>List a New Mime</h1>
 
-  <div class="form-inputs">
+<div class="booking-form">
+  <%= simple_form_for(@clown) do |f| %>
     <%= f.input :name %>
     <%= f.input :years_of_experience %>
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :photo, as: :file %>
-  </div>
+  <% end %>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<div class="btn btn-danger">
+  <%= f.button :submit %>
+</div>

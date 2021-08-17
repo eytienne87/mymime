@@ -1,6 +1,9 @@
 <h1>Book <%= @clown.name %></h1>
-<%= simple_form_for [ @clown, @booking ] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Book", class: "btn btn-primary" %>
-<% end %>
+
+<div class="booking-form">
+  <%= simple_form_for [ @clown, @booking ] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Book", class: "btn btn-primary" %>
+  <% end %>
+</div>
