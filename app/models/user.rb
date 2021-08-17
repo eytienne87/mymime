@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :clowns
+  has_many :bookings
+
   validates :first_name, :last_name, presence: true
 
   # Include default devise modules. Others available are:
