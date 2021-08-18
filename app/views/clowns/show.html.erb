@@ -1,10 +1,15 @@
 <div class="card-product">
   <img src="https://www.futurity.org/wp/wp-content/uploads/2021/04/mimes-perception-1600.jpg" />
   <div class="card-product-infos">
-    <h2> <%= @clown.name %></h2>
-    <p> <%= @clown.gender %> </p>
-    <p> <%= @clown.years_of_experience %> </p>
+    <h2>Name: <%= @clown.name %></h2>
+    <p>Gender: <%= @clown.gender %></p>
+    <p>Years of Experience: <%= @clown.years_of_experience %></p>
     <p><%= link_to 'Edit', edit_clown_path %></p>
     <p><%= link_to 'Delete', clown_path, method: :delete, data: { confirm: 'are you sure?' } %></p>
+  </div>
+  <div>
+    <%= link_to new_clown_booking_path(@clown) do %>
+      <button type="button" class="btn btn-primary">Booking Request</button>
+    <% end %>
   </div>
 </div>
