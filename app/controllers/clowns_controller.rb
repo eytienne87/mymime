@@ -12,13 +12,38 @@ class ClownsController < ApplicationController
   end
 
   def create
-    @clown = Clown.new(params[:id])
+    @clown = Clown.new(clown_params)
 
     if @clown.save
-      redirect_to @clown, notice: 'clown was successfully created.'
+      redirect_to @clown, notice: 'Mime was successfully created.'
     else
       render :new
     end
+  end
+
+  def edit
+    @clown = Clown.find(params[:id])
+  end
+
+  def update
+    @clown = Clown.find(params[:id])
+    if @clown.update(clown_params)
+      redirect_to @clown, notice: 'Mime was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @clown = Clown.find(params[:id])
+    @clown.destroy
+    redirect_to clowns_path
+  end
+
+  private
+
+  def clown_params
+    params.require(:clown).permit(:name, :years_of_experience, :gender, :rental_duration, :image_url)
   end
 
 end

@@ -4,5 +4,7 @@
   <div class="card-product-infos">
     <h2>Product name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
+    <p><%= link_to 'Edit', edit_clown_path %></p>
+    <p><%= link_to 'Delete', clown_path, method: :delete, data: { confirm: 'are you sure?' } %></p>
   </div>
 </div>
