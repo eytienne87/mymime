@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-mymime">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://cdn.dribbble.com/users/1055435/screenshots/3371597/mime-final.gif" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "/", class: "navbar-brand" do %>
+    <%= image_tag "https://image.flaticon.com/icons/png/512/3410/3410738.png" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,14 +10,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to "Mimes for Hire", "#", class: "nav-link" %>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Mimes for Hire", clowns_path, class: "nav-link" %>
         </li>
-      <li class="nav-item active">
-        <%= link_to "Experiences", "#", class: "nav-link" %>
-      </li>
       <li class="nav-item">
-        <%= link_to "User123", "#", class: "nav-link" %>
+        <%= link_to "Experiences", "#", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <%= image_tag "https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,8 +24,14 @@
           <%= link_to "View Bookings", "#", class: "dropdown-item" %>
           <%= link_to "Help", "#", class: "dropdown-item" %>
           <%= link_to "FAQ", "#", class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
