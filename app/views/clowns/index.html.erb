@@ -1,0 +1,6 @@
+<h1>Shows a list of all clowns</h1>
+<ul>
+  <% @clowns.each do |clown| %>
+    <li><%= link_to clown.name, clown_path(clown)  %></li>
+  <% end %>
+</ul>
