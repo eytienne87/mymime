@@ -20,4 +20,5 @@ class ClownsController < ApplicationController
       render :new
     end
   end
+
 end
