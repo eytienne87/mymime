@@ -13,9 +13,10 @@ class ClownsController < ApplicationController
 
   def create
     @clown = Clown.new(clown_params)
+    @clown.user = current_user
 
     if @clown.save
-      redirect_to @clown, notice: 'Mime was successfully created.'
+      redirect_to clown_path(@clown), notice: 'Mime was successfully created.'
     else
       render :new
     end
