@@ -2,7 +2,13 @@
 <div class="card-product">
   <img src="https://www.futurity.org/wp/wp-content/uploads/2021/04/mimes-perception-1600.jpg" />
   <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+    <h2>Name: <%= @clown.name %></h2>
+    <p>Gender: <%= @clown.gender %></p>
+    <p>Years of Experience: <%= @clown.years_of_experience %></p>
+  </div>
+  <div>
+    <%= link_to new_clown_booking_path(@clown) do %>
+      <button type="button" class="btn btn-primary">Booking Request</button>
+    <% end %>
   </div>
 </div>

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_clown_id_and_user_id, except: [ :show, :destroy ]
-  before_action :set_booking, only: [ :show, :destroy ]
+  before_action :set_booking, only: [ :show, :destroy, :edit, :update ]
 
   def index
     # TODO: Change the below line, maybe Booking.where(...)???
@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to clown_bookings_path
+    redirect_to clowns_path
   end
 
   private
