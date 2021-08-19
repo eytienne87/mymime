@@ -1,0 +1,51 @@
+<div>
+  <h1>MyMime Booking Listing</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Booking Start Date</th>
+      <th>Booking End Date</th>
+      <th>Status</th>
+    </tr>
+    <% @clowns.each do |clown| %>
+    <tr>
+      <td><%= clown.name %></td>
+      <% @bookings = Booking.where(clown_id: clown.id) %>
+      <% if !@bookings.empty? %>
+        <% @bookings.each do |booking| %>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date%></td>
+
+          <td>
+            <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if booking.accepted.nil? %>
+                  Waiting
+                <% elsif booking.accepted == false %>
+                  Rejected
+                <% else %>
+                  Accepted
+                <% end %>
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <% if booking.accepted.nil? %>
+                  <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
+                  <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
+                <% elsif booking.accepted == false %>
+                  <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
+                <% else %>
+                  <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
+                <% end %>
+
+              </div>
+            </div>
+          </td>
+
+        <% end %>
+      <% end %>
+    </tr>
+    <% end %>
+
+  </table>
+</div>
