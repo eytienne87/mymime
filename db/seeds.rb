@@ -72,32 +72,32 @@ john = Clown.create!(
 # ----------Bookings------------
 
 Booking.create!(
-  start_date: Datetime.now,
-  end_date: Datetime.now + 1.hour,
+  start_date: DateTime.now,
+  end_date: DateTime.now + 1.hour,
   user: user_3,
   clown: caroline
 )
 Booking.create!(
-  start_date: Datetime.now + 1,
-  end_date: Datetime.now.end_of_day + 1,
+  start_date: DateTime.now + 1,
+  end_date: DateTime.now.end_of_day + 1,
   user: user_4,
   clown: caroline
 )
 Booking.create!(
-  start_date: Datetime.now + 2,
-  end_date: Datetime.now.end_of_day + 2,
+  start_date: DateTime.now + 2,
+  end_date: DateTime.now.end_of_day + 2,
   user: user_5,
   clown: judith
 )
 Booking.create!(
-  start_date: Datetime.now + 3,
-  end_date: Datetime.now.end_of_day + 3,
+  start_date: DateTime.now + 3,
+  end_date: DateTime.now.end_of_day + 3,
   user: user_3,
   clown: judith
 )
 Booking.create!(
-  start_date: Datetime.now + 4,
-  end_date: Datetime.now.end_of_day + 4,
+  start_date: DateTime.now + 4,
+  end_date: DateTime.now.end_of_day + 4,
   user: user_4,
   clown: judith
 )
