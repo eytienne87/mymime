@@ -26,6 +26,7 @@ gem 'turbolinks', '~> 5'
 # gem 'image_processing', '~> 1.2'
 
 # Custom
+gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 
