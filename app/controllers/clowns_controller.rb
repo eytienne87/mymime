@@ -44,7 +44,7 @@ class ClownsController < ApplicationController
   private
 
   def clown_params
-    params.require(:clown).permit(:name, :years_of_experience, :gender, :rental_duration, :image_url)
+    params.require(:clown).permit(:name, :years_of_experience, :gender, :rental_duration, :image_url, :photo)
   end
 
 end
