@@ -1,8 +1,8 @@
 puts "Destroying all users, all mimes and all bookings..."
 
+Booking.destroy_all
 Clown.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 puts "Seeding in progress..."
 
@@ -11,16 +11,16 @@ user_1 = User.create!(
   {email: "a@a.a", password: "123456"}
 )
 user_2 = User.create!(
-  {email: "b@b.b", password: "234567"}
+  {email: "b@b.b", password: "123456"}
 )
 user_3 = User.create!(
-  {email: "c@c.c", password: "345678"}
+  {email: "c@c.c", password: "123456"}
 )
 user_4 = User.create!(
-  {email: "d@d.d", password: "456789"}
+  {email: "d@d.d", password: "123456"}
 )
 user_5 = User.create!(
-  {email: "e@e.e", password: "012345"}
+  {email: "e@e.e", password: "123456"}
 )
 
 # ----------Mimes------------
@@ -72,32 +72,32 @@ john = Clown.create!(
 # ----------Bookings------------
 
 Booking.create!(
-  start_date: Time.now.to_datetime ,
-  end_date: Time.now.to_datetime.end_of_day ,
+  start_date: Datetime.now,
+  end_date: Datetime.now + 1.hour,
+  user: user_3,
+  clown: caroline
+)
+Booking.create!(
+  start_date: Datetime.now + 1,
+  end_date: Datetime.now.end_of_day + 1,
   user: user_4,
   clown: caroline
 )
 Booking.create!(
-  start_date: Time.now.to_datetime ,
-  end_date: Time.now.to_datetime.end_of_day ,
+  start_date: Datetime.now + 2,
+  end_date: Datetime.now.end_of_day + 2,
+  user: user_5,
+  clown: judith
+)
+Booking.create!(
+  start_date: Datetime.now + 3,
+  end_date: Datetime.now.end_of_day + 3,
+  user: user_3,
+  clown: judith
+)
+Booking.create!(
+  start_date: Datetime.now + 4,
+  end_date: Datetime.now.end_of_day + 4,
   user: user_4,
-  clown: caroline
-)
-Booking.create!(
-  start_date: Time.now.to_datetime ,
-  end_date: Time.now.to_datetime.end_of_day ,
-  user: user_5,
-  clown: judith
-)
-Booking.create!(
-  start_date: Time.now.to_datetime ,
-  end_date: Time.now.to_datetime.end_of_day ,
-  user: user_5,
-  clown: judith
-)
-Booking.create!(
-  start_date: Time.now.to_datetime ,
-  end_date: Time.now.to_datetime.end_of_day ,
-  user: user_5,
   clown: judith
 )
