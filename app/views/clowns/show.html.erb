@@ -1,9 +1,10 @@
 <div class="card-product">
-  <img src="https://www.futurity.org/wp/wp-content/uploads/2021/04/mimes-perception-1600.jpg" />
+  <%= cl_image_tag @clown.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
     <h2>Name: <%= @clown.name %></h2>
-    <p>Gender: <%= @clown.gender %></p>
+    <p>Price: <%= @clown.price %></p>
     <p>Years of Experience: <%= @clown.years_of_experience %></p>
+    <p>Description: <%= @clown.description %></p>
     <p><%= link_to 'Edit', edit_clown_path %></p>
     <p><%= link_to 'Delete', clown_path, method: :delete, data: { confirm: 'are you sure?' } %></p>
   </div>
