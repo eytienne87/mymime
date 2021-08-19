@@ -1,8 +1,17 @@
 <h1>Shows a list of all clowns</h1>
 <ul>
   <% @clowns.each do |clown| %>
-    <li><%= link_to clown.name, clown_path(clown)  %></li>
+    <li>
+      <% if clown.photo.attached? %>
+        <%= cl_image_tag clown.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag(clown.image_url, height: 300, width: 400) %>
+      <% end %>
+      <%= link_to clown.name, clown_path(clown)  %>
+    </li>
   <% end %>
 </ul>
 
 <%= link_to 'Add a mime!', new_clown_path %>
+
+#

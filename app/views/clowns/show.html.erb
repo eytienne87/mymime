@@ -1,5 +1,9 @@
 <div class="card-product">
-  <%= cl_image_tag @clown.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if @clown.photo.attached? %>
+    <%= cl_image_tag @clown.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+    <%= image_tag(@clown.image_url, height: 300, width: 400) %>
+  <% end %>
   <div class="card-product-infos">
     <h2>Name: <%= @clown.name %></h2>
     <p>Price: <%= @clown.price %></p>
