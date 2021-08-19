@@ -10,42 +10,36 @@
     <% @clowns.each do |clown| %>
     <tr>
       <td><%= clown.name %></td>
-      <% @bookings = Booking.where(clown_id: clown.id) %>
-      <% if !@bookings.empty? %>
-        <% @bookings.each do |booking| %>
-          <td><%= booking.start_date %></td>
-          <td><%= booking.end_date%></td>
+      <% clown.bookings.each do |booking| %>
+        <td><%= booking.start_date %></td>
+        <td><%= booking.end_date%></td>
 
-          <td>
-            <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <% if booking.accepted.nil? %>
-                  Waiting
-                <% elsif booking.accepted == false %>
-                  Rejected
-                <% else %>
-                  Accepted
-                <% end %>
-              </a>
+        <td>
+          <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if booking.accepted.nil? %>
+                Pending
+              <% elsif booking.accepted %>
+                Accepted
+              <% else %>
+                Rejected
+              <% end %>
+            </a>
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <% if booking.accepted.nil? %>
-                  <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
-                  <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
-                <% elsif booking.accepted == false %>
-                  <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
-                <% else %>
-                  <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
-                <% end %>
-
-              </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <% if booking.accepted.nil? %>
+                <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
+                <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
+              <% elsif booking.accepted %>
+                <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
+              <% else %>
+                <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
+              <% end %>
             </div>
-          </td>
-
-        <% end %>
+          </div>
+        </td>
       <% end %>
     </tr>
     <% end %>
-
   </table>
 </div>
