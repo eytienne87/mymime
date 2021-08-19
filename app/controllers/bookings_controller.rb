@@ -1,12 +1,15 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_clown_id_and_user_id, except: [ :show, :destroy ]
-  before_action :set_booking, only: [ :show, :destroy, :edit, :update ]
+  before_action :set_clown_id_and_user_id, except: [ :show, :destroy, :accept, :reject]
+  before_action :set_booking, only: [ :show, :destroy, :edit, :update, :accept, :reject ]
 
   def index
-    # TODO: Change the below line, maybe Booking.where(...)???
+    # TODO: Implement logic to accept or deny a booking
+    # If the user is the owner of the Mime, SHOW option to accept a booking
+    # if the user is not the owner of the Mime, SHOW status of Accepted or not.
     # @bookings = Booking.all
-    @bookings = Booking.where(clown: @clown)
+    # @bookings = Booking.where(clown: @clown)
+    @bookings = Booking.where(user_id: current_user)
   end
 
   def new
@@ -42,6 +45,18 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to clowns_path
+  end
+
+  def accept
+    @booking.accept!
+    @booking.save
+    redirect_to profile_path
+  end
+
+  def reject
+    @booking.reject!
+    @booking.save
+    redirect_to profile_path
   end
 
   private
