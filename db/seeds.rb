@@ -44,7 +44,7 @@ anthony = Clown.create!(
 
 judith = Clown.create!(
   name: "Judith",
-  image_url: "https://npr.brightspotcdn.com/dims4/default/954745d/2147483647/strip/true/crop/640x960+0+0/resize/880x1320!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Ffa%2F37%2Fba54a6e94e299e58f9e0483b9cf3%2F04232020-beth-byrd-lonski-emmett-merrill.jpg",
+  image_url: "https://i.ytimg.com/vi/vJhbJrDW3yI/maxresdefault.jpg",
   years_of_experience: 2,
   price: 5000,
   description: 'Hello everyone, I\'m great at my job!',
@@ -62,7 +62,7 @@ caroline = Clown.create!(
 
 john = Clown.create!(
   name: "John",
-  image_url: "https://static.wikia.nocookie.net/clownopedia/images/1/15/Mime-costume-1-.jpg/revision/latest?cb=20140119032156",
+  image_url: "https://i.pinimg.com/originals/52/18/e0/5218e000df0fea0da6b2101e39122d1d.jpg",
   years_of_experience: 62,
   price: 30_000,
   description: 'I give a hell of a show',
