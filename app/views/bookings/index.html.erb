@@ -1,13 +1,29 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8">
-      <h1>Booking Listing </h1>
+<h1>Booking Listing </h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Booking Start date</th>
+      <th scope="col">Booking End date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <% @bookings.each do |booking| %>
-        <p>Mime's name: <%= booking.clown.name %></p>
-        <p>Booking Start date: <%= booking.start_date %></p>
-        <p>Booking End date: <%= booking.end_date %></p>
-        <p>Accepted: <%= booking.accepted %></p>
+        <tr>
+          <td><%= booking.clown.name %></td>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <% if booking.accepted.nil? %>
+            <td>Pending</td>
+          <% elsif booking.accepted %>
+            <td>Accepted</td>
+          <% else %>
+            <td>Rejected</td>
+          <% end %>
+        </tr>
       <% end %>
-    </div>
-  </div>
-</div>
+    </tr>
+  </tbody>
+</table>

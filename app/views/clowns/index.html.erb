@@ -1,10 +1,9 @@
-<%= link_to 'Add a mime!', new_clown_path %>
-
 <div class="container py-5 my-3">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">Browse through the mimes</h3>
     <%= link_to 'Add a mime', new_clown_path, class: 'btn btn-flat' %>
   </div>
+
   <div class="cards-mimes">
     <% @clowns.each do |clown| %>
         <%= link_to clown_path(clown), class:'text-decoration-none' do %>
@@ -16,5 +15,9 @@
             <h3><%= clown.name %></h3>
         <% end %>
     <% end %>
+  </div>
+
+  <div class="button">
+    <%= link_to 'Add a mime!', new_clown_path %>
   </div>
 </div>
