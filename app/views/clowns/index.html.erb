@@ -1,3 +1,6 @@
+<div class="card-category" style="background-image: url(https://seatup.com/blog/wp-content/uploads/2019/07/Mime-Header2.jpg)">
+  Browse All Mimes
+</div>
 <h1>Shows a list of all clowns</h1>
 <ul>
   <% @clowns.each do |clown| %>
@@ -12,4 +15,14 @@
   <% end %>
 </ul>
 
-<%= link_to 'Add a mime!', new_clown_path %>
+<div class="mime_card_search">
+  <ul>
+    <% @clowns.each do |clown| %>
+      <li><%= link_to clown.name, clown_path(clown)  %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="button">
+  <%= link_to 'Add a mime!', new_clown_path %>
+</div>
