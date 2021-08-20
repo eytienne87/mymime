@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_clown_id_and_user_id, except: [ :show, :destroy, :accept, :reject]
+  before_action :set_clown_id_and_user_id, except: [ :index, :show, :destroy, :accept, :reject]
   before_action :set_booking, only: [ :show, :destroy, :edit, :update, :accept, :reject ]
 
   def index
@@ -9,7 +9,10 @@ class BookingsController < ApplicationController
     # if the user is not the owner of the Mime, SHOW status of Accepted or not.
     # @bookings = Booking.all
     # @bookings = Booking.where(clown: @clown)
-    @bookings = Booking.where(user_id: current_user)
+    # @bookings = Booking.where(user_id: current_user)
+    @user = current_user
+    @clowns = @user.clowns
+    @bookings = @user.bookings
   end
 
   def new
