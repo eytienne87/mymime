@@ -1,28 +1,19 @@
-<div class="card-category" style="background-image: url(https://seatup.com/blog/wp-content/uploads/2019/07/Mime-Header2.jpg)">
-  Browse All Mimes
-</div>
-<h1>Shows a list of all clowns</h1>
-<ul>
-  <% @clowns.each do |clown| %>
-    <li>
-      <% if clown.photo.attached? %>
-        <%= cl_image_tag clown.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag(clown.image_url, height: 300, width: 400) %>
-      <% end %>
-      <%= link_to clown.name, clown_path(clown)  %>
-    </li>
-  <% end %>
-</ul>
+<div class="container py-5 my-3">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">Browse through the mimes</h3>
+    <%= link_to 'Add a mime', new_clown_path, class: 'btn btn-flat' %>
+  </div>
 
-<div class="mime_card_search">
-  <ul>
+  <div class="cards-mimes">
     <% @clowns.each do |clown| %>
-      <li><%= link_to clown.name, clown_path(clown)  %></li>
+        <%= link_to clown_path(clown), class:'text-decoration-none' do %>
+           <% if clown.photo.attached? %>
+            <%= cl_image_tag clown.photo.key, height: 300, crop: :fill %>
+           <% else %>
+            <%= image_tag(clown.image_url, class: "card-mime-image") %>
+           <% end %>
+            <h3><%= clown.name %></h3>
+        <% end %>
     <% end %>
-  </ul>
-</div>
-
-<div class="button">
-  <%= link_to 'Add a mime!', new_clown_path %>
+  </div>
 </div>
