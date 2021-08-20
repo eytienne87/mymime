@@ -11,3 +11,14 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.link-to {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  &:hover {
+    text-decoration: none;
+    color: $red;
+    // color: rgba(255, 255, 255, 0.9);
+  }
+}

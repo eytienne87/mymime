@@ -1,50 +1,53 @@
-<h1>MyMime Booking Listing</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Booking Start date</th>
-      <th scope="col">Booking End date</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% @clowns.each do |clown| %>
-        <% clown.bookings.each do |booking| %>
-          <tr>
-            <td><%= clown.name %></td>
-            <td><%= booking.start_date %></td>
-            <td><%= booking.end_date%></td>
+<div class="container bookings-listings">
+  <h1>MyMime Booking Listing</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Booking Start date</th>
+        <th scope="col">Booking End date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @clowns.each do |clown| %>
+          <% clown.bookings.each do |booking| %>
+            <tr>
+              <td><%= link_to clown.name, clown_path(clown), class: 'text-decoration-none link-to' %></td>
+              <td><%= booking.start_date.strftime("%b %e, %l:%M %p") %></td>
+              <td><%= booking.end_date.strftime("%b %e, %l:%M %p") %></td>
 
-            <td>
-              <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <% if booking.accepted.nil? %>
-                    Pending
-                  <% elsif booking.accepted %>
-                    Accepted
-                  <% else %>
-                    Rejected
-                  <% end %>
-                </a>
+              <td>
+                <div class="dropdown show">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <% if booking.accepted.nil? %>
+                      Pending
+                    <% elsif booking.accepted %>
+                      Accepted
+                    <% else %>
+                      Rejected
+                    <% end %>
+                  </a>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <% if booking.accepted.nil? %>
-                    <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
-                    <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
-                  <% elsif booking.accepted %>
-                    <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
-                  <% else %>
-                    <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
-                  <% end %>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <% if booking.accepted.nil? %>
+                      <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
+                      <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
+                    <% elsif booking.accepted %>
+                      <%= link_to 'Reject', reject_path(booking), method: :patch,  class: "dropdown-item" %>
+                    <% else %>
+                      <%= link_to 'Accept', accept_path(booking), method: :patch,  class: "dropdown-item" %>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+              </td>
+            </tr>
             </td>
-          </tr>
-          </td>
+          <% end %>
         <% end %>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

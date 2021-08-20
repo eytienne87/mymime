@@ -6,7 +6,7 @@
 
   <div class="cards-mimes">
     <% @clowns.each do |clown| %>
-        <%= link_to clown_path(clown), class:'text-decoration-none' do %>
+        <%= link_to clown_path(clown), class:'text-decoration-none btn btn-danger' do %>
            <% if clown.photo.attached? %>
             <%= cl_image_tag clown.photo.key, height: 300, crop: :fill %>
            <% else %>
