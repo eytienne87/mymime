@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Destroying all users, all mimes and all bookings..."
 
 Booking.destroy_all
@@ -22,6 +24,23 @@ user_4 = User.create!(
 user_5 = User.create!(
   {email: "e@e.e", password: "123456"}
 )
+
+
+file = URI.open('https://i.pravatar.cc/150?img=52')
+user_1.photo.attach(io: file, filename: 'avatar.png', content_type: 'image/jpeg')
+
+file = URI.open('https://i.pravatar.cc/150?img=51')
+user_2.photo.attach(io: file, filename: 'avatar.png', content_type: 'image/jpeg')
+
+file = URI.open('https://i.pravatar.cc/150?img=49')
+user_3.photo.attach(io: file, filename: 'avatar.png', content_type: 'image/jpeg')
+
+file = URI.open('https://i.pravatar.cc/150?img=45')
+user_4.photo.attach(io: file, filename: 'avatar.png', content_type: 'image/jpeg')
+
+file = URI.open('https://i.pravatar.cc/150?img=65')
+user_5.photo.attach(io: file, filename: 'avatar.png', content_type: 'image/jpeg')
+
 
 # ----------Mimes------------
 bobby = Clown.create!(
