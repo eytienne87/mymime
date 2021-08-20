@@ -1,3 +1,4 @@
+<h1><%= @clown.name %></h1>
 <div class="card-product">
   <% if @clown.photo.attached? %>
     <%= cl_image_tag @clown.photo.key, height: 300, width: 400, crop: :fill %>
