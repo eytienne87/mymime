@@ -1,15 +1,30 @@
-<h1>Shows a list of all clowns</h1>
+<%# <h1>Shows a list of all clowns</h1>
 <ul>
   <% @clowns.each do |clown| %>
-    <li>
+    <%# <li>
       <% if clown.photo.attached? %>
-        <%= cl_image_tag clown.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag(clown.image_url, height: 300, width: 400) %>
-      <% end %>
-      <%= link_to clown.name, clown_path(clown)  %>
-    </li>
-  <% end %>
-</ul>
+        <%# <%= cl_image_tag clown.photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <% else %> %>
+        <%# <%= image_tag(clown.image_url, height: 300, width: 400) %> %>
+      <%# <% end %> %>
+      <%# <%= link_to clown.name, clown_path(clown)  %> %>
+    <%# </li> %>
+  <%# <% end %> %> %>
+<%# </ul> %> %> %>
 
 <%= link_to 'Add a mime!', new_clown_path %>
+
+<div class="card bg-dark text-white">
+  <%# <img class="card-img" src="..." alt="Card image"> %>
+  <% @clowns.each do |clown| %>
+  <% if clown.photo.attached? %>
+    <%= cl_image_tag clown.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+    <%= image_tag(clown.image_url, height: 300, width: 400) %>
+  <% end %>
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div>
+</div>
