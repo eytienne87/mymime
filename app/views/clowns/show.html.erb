@@ -1,19 +1,18 @@
-<h1><%= @clown.name %></h1>
-<div class="card-product">
+<div class="container-show">
   <% if @clown.photo.attached? %>
-    <%= cl_image_tag @clown.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @clown.photo.key %>
   <% else %>
-    <%= image_tag(@clown.image_url, height: 300, width: 400) %>
+    <%= image_tag(@clown.image_url) %>
   <% end %>
-  <div class="card-product-infos">
-    <h2>Name: <%= @clown.name %></h2>
-    <p>Price: <%= @clown.price %></p>
-    <p>Years of Experience: <%= @clown.years_of_experience %></p>
-    <p>Description: <%= @clown.description %></p>
-    <p><%= link_to 'Edit', edit_clown_path %></p>
-    <p><%= link_to 'Delete', clown_path, method: :delete, data: { confirm: 'are you sure?' } %></p>
-  </div>
-  <div>
+  <div class="">
+    <h1><%= @clown.name %></h2>
+    <p>$<%= @clown.price %></p>
+    <p class="pill"><%= @clown.years_of_experience %> years of experience</p>
+    <p><%= @clown.description %></p>
+    <% if current_user == @clown.user %>
+      <p><%= link_to 'Edit', edit_clown_path %></p>
+      <p><%= link_to 'Delete', clown_path, method: :delete, data: { confirm: 'are you sure?' } %></p>
+    <% end %>
     <%= link_to new_clown_booking_path(@clown) do %>
       <button type="button" class="btn btn-primary">Booking Request</button>
     <% end %>
