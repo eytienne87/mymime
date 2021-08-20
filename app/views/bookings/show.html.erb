@@ -1,10 +1,10 @@
 <h1>Your Booking with <%= @booking.clown.name %></h1>
-<p>Mime's name: <%= @booking.clown.name %></p>
-<p>Start Date: <%= @booking.start_date %></p>
-<p>End Date: <%= @booking.end_date %></p>
-<%= link_to "Back to Home", root_path %>
-<%= link_to "Edit", edit_clown_booking_path(@booking.clown, @booking) %>
-<%= link_to "Cancel Booking for #{@booking.clown.name}",
-            booking_path(@booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+
+<div class="booking-form">
+  <p>Mime's name: <%= @booking.clown.name %></p>
+  <p>Start Date: <%= @booking.start_date %></p>
+  <p>End Date: <%= @booking.end_date %></p>
+  <%= link_to "Back to Home", root_path, class: "btn btn-danger" %>
+  <%= link_to "Edit", edit_clown_booking_path(@booking.clown, @booking), class: "btn btn-danger" %>
+  <%= link_to "Cancel Booking for #{@booking.clown.name}", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>
