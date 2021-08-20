@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
   patch '/bookings/:id/accept', to: 'bookings#accept', as: :accept
   patch '/bookings/:id/reject', to: 'bookings#reject', as: :reject
+  get '/bookings', to: 'bookings#index'
 
   resources :clowns do
-    resources :bookings, except: [ :show, :destroy ]
+    resources :bookings, except: [ :index, :show, :destroy ]
   end
   resources :bookings, only: [ :show, :destroy ]
 
