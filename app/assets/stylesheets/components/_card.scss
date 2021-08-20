@@ -1,3 +1,24 @@
+/// index page ///
+.cards-mimes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+.cards-mimes a {
+  background: white;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card-mime-image {
+  height: 300px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/// not sure I need this part yet
+
 .card-product {
   overflow: hidden;
   height: 120px;
