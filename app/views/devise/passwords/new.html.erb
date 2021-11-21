@@ -1,18 +1,26 @@
-<h2>Forgot your password?</h2>
+<div class="container w-50 mt-2">
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <h2>Forgot your password?</h2>
+    <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="d-flex form-actions justify-content-between">
+      <div class='d-flex'>
+        <%= f.button :submit, "Send me reset password instructions", class: 'btn btn-danger btn-sm mt-2 mr-1' %>
+        <%- if controller_name != 'sessions' %>
+          <%= link_to "Log in", new_session_path(resource_name), class:'btn btn-outline-danger btn-sm mt-2 mr-1' %><br />
+        <% end %>
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "Sign up", new_registration_path(resource_name), class:'btn btn-outline-danger btn-sm mt-2 mr-1' %><br />
+        <% end %>
+      </div>
+      <%= link_to 'Go back', root_path, class: "btn btn-outline-danger btn-sm mt-2" %>
+    </div>
+  <% end %>
+</div>
