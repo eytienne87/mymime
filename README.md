@@ -1,1 +1,5 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# my-mime 🤡
+
+**Ruby on Rails** CRUD app created at Le Wagon styled with simple CSS and Bootstrap v5.1.
+
+Gems used -> Cloudinary, Simple Form, Font Awesome and Devise.
