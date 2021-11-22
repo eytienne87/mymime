@@ -8,7 +8,7 @@
     <% @clowns.each do |clown| %>
         <%= link_to clown_path(clown), class:'text-decoration-none btn btn-danger' do %>
            <% if clown.photo.attached? %>
-            <%= cl_image_tag clown.photo.key, height: 300, crop: :fill %>
+            <%= cl_image_tag clown.photo.key, height: 300, width: 317, crop: :fill %>
            <% else %>
             <%= image_tag(clown.image_url, class: "card-mime-image") %>
            <% end %>

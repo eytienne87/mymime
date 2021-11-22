@@ -1,28 +1,41 @@
-.container-show {
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: 1fr 2fr;
+// Name
+.mime-name-header {
+  border-bottom: 3px solid black;
 }
-.container-show img {
-  width: 100%;
-  height: 100vh;
+
+// Details
+.details-list {
+  padding: 0;
+}
+
+.details-list > * {
+  list-style: none;
+  font-weight: 400;
+  color: #333;
+}
+
+.description-blurb-mime {
+  font-weight: 400;
+  color: #333;
+}
+
+li > i  {
+  color: rgba(170,170,170,0.8);
+}
+
+// Image
+.image-seed-file {
+  height: 350px;
+  width: 350px;
   object-fit: cover;
 }
 
-.container-show > div {
-  padding-bottom: 50px;
-  align-self: center;
+.perspective {
+  perspective: 1rem;
+  margin-top: 2rem;
 }
 
-.pill {
-  padding: 10px;
-  border-radius: 10px;
-  background: white;
-  color: black;
-  width: min-content;
-  white-space: nowrap;
-}
-
-.container-show h1 {
-  text-align: left;
+.image-mime {
+  transform: rotateY(-0.5deg);
+  box-shadow: 4px 4px 4px;
 }

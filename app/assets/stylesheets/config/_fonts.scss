@@ -1,10 +1,10 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
-
+// @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 // Define fonts for body and headers
-$body-font: "DM Serif Display", "serif";
-$headers-font: "DM Serif Display", "serif";
+$body-font:'Roboto', sans-serif;
+$headers-font:'Roboto', sans-serif;
 table {
   color: white !important;
 }

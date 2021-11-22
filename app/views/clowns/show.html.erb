@@ -1,20 +1,46 @@
-<div class="container-show">
-  <% if @clown.photo.attached? %>
-    <%= cl_image_tag @clown.photo.key %>
-  <% else %>
-    <%= image_tag(@clown.image_url) %>
-  <% end %>
-  <div class="">
-    <h1><%= @clown.name %></h2>
-    <p>$<%= @clown.price %></p>
-    <p class="pill"><%= @clown.years_of_experience %> years of experience</p>
-    <p><%= @clown.description %></p>
-    <% if current_user == @clown.user %>
-      <p><%= link_to 'Edit', edit_clown_path %></p>
-      <p><%= link_to 'Delete', clown_path, method: :delete, data: { confirm: 'are you sure?' } %></p>
-    <% end %>
-    <%= link_to new_clown_booking_path(@clown) do %>
-      <button type="button" class="btn btn-danger">Booking Request</button>
-    <% end %>
+<div class="container d-flex mt-3 mb-3">
+  <div class="container d-flex flex-column justify-content-start">
+
+    <div class="mime-name-header">
+      <h2><%= @clown.name %></h2>
+    </div>
+
+    <div class='container p-0 mt-4'>
+      <p class='subheader-section'>Details</p>
+      <ul class='details-list'>
+        <li class='d-flex align-items-center mb-3'>
+          <i class="fas fa-dollar-sign mr-2 ml-1"></i>
+          <%= @clown.price %> per hour
+        </li>
+        <li class='d-flex align-items-center'>
+          <i class="fas fa-calendar-check mr-2"></i>
+          <%= @clown.years_of_experience %>  years of experience
+        </li>
+      </ul>
+    <p class='description-blurb-mime'><%= @clown.description %></p>
+    </div>
+
+
+    <div class="d-flex justify-content-between">
+      <%= link_to new_clown_booking_path(@clown) do %>
+        <button type="button" class="btn btn-danger">Booking Request</button>
+      <% end %>
+      <div class="d-flex align-items-center">
+        <% if current_user == @clown.user %>
+          <p><%= link_to 'Edit', edit_clown_path, class: "btn btn-outline-danger btn-sm mr-2" %></p>
+          <p><%= link_to 'Delete', clown_path, method: :delete, data: { confirm: 'are you sure?' }, class: "btn btn-outline-danger btn-sm" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class='perspective'>
+    <div class='image-mime'>
+      <% if @clown.photo.attached? %>
+        <%= cl_image_tag @clown.photo.key, :width=>350, :height=>350, :gravity=>"faces", :crop=>"fill" %>
+      <% else %>
+        <%= image_tag(@clown.image_url, class: 'image-seed-file') %>
+      <% end %>
+    </div>
   </div>
 </div>
